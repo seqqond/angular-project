@@ -1,0 +1,13 @@
+.onePost{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.form-label{
+    opacity: 0.5;
+    font-size: 15px;
+}
+.btn-success{
+    width: 150px;
+}

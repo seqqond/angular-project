@@ -1,0 +1,38 @@
+<h1>Register Page</h1>
+<form [formGroup]="registerForm" novalidate class="pb-3 pt-3">
+    <div>
+        <label class="form-label" for="email">Email*</label>
+        <input formControlName="email" class="form-control" placeholder="Enter your email" type="email" name="email"
+            id="email">
+        <div style="color: red;" *ngIf="emailForm.invalid && (emailForm.dirty || emailForm.touched)">
+            Email must be valid
+        </div>
+    </div>
+    <div class="mt-3">
+        <label class="form-label" for="password">Password*</label>
+        <input formControlName="password" class="form-control" placeholder="Enter your password" type="password"
+            name="password" id="password">
+        <div style="color: red;" *ngIf="passwordForm.invalid && (passwordForm.dirty || passwordForm.touched)">
+            Password is invalid
+        </div>
+    </div>
+    <div class="mt-3">
+        <label class="form-label" for="confirmPassword">Confirm Password*</label>
+        <input formControlName="confirmPassword" class="form-control" placeholder="Enter your password again"
+            type="password" name="confirmPassword" id="confirmPassword">
+        <div style="color: red;"
+            *ngIf="registerForm.errors && registerForm.errors['mismatch'] && (confirmPasswordForm.dirty || confirmPasswordForm.touched)">
+            Passwords do not match.
+        </div>
+
+    </div>
+    <div class="mt-2">
+        <input type="checkbox" [(ngModel)]="termsAccepted" [ngModelOptions]="{standalone: true}" class="form-label" name="terms"> I accept the <span class="policy">Terms of Use </span>& <span class="policy">Privacy Policy</span>
+    </div>
+    <div>
+        <p class="text-center mt-3"><input #btnRegister [disabled]="!registerForm.valid || !termsAccepted" class="btn" type="button" value="Register" (click)="register()"></p>
+    </div>
+    <div class="text-center">
+        <p>Already have an account? <a class="signIn" routerLink="/login">Sign In</a></p>
+    </div>
+</form>

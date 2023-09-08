@@ -1,0 +1,17 @@
+nav{
+    background-color: red;
+    margin-bottom: 50px;
+}
+nav a{
+    color: white;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color: white;
+}
+.nav-link{
+    cursor: pointer;
+    margin-right: 10px;
+}
+.nav-link:hover{
+    border-bottom: 1px solid rgb(255, 255, 255);
+}

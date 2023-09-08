@@ -1,0 +1,14 @@
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title p{
+    cursor: pointer;
+}
+.author{
+    font-weight: bold;
+}
+.date{
+    font-size: 12px;
+}

@@ -1,0 +1,32 @@
+.onePost{
+    width: 400px;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.post-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.onePost{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.post-info p:first-child{
+    font-weight: bold;
+}
+.author{
+    margin-top: -10px;
+    font-size: 14px;
+    color: gray;
+}
+.btn-dark{
+    margin-top: -10px;
+}

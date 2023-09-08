@@ -1,0 +1,28 @@
+<div class="container">
+    <form novalidate [formGroup]="addNewPost">
+        <div class="main">
+            <div>
+                <h1 class="text-center mt-3">Add New Post</h1>
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" formControlName="title" placeholder="Enter title" type="text" name="title"
+                    id="title">
+                <div style="color: red;" *ngIf="titleForm.invalid && (titleForm.dirty || titleForm.touched)">
+                    <div class="mb-2" *ngIf="titleForm.errors && titleForm.errors['whitespace']">Title cannot be empty</div>
+                    <div class="mb-2" *ngIf="titleForm.errors && titleForm.errors['required']">Title is required</div>
+                    <div class="mb-2" *ngIf="titleForm.errors && titleForm.errors['minlength']">The length must be at least {{titleForm.errors['minlength'].requiredLength}}</div>
+                </div>
+            </div>
+            <div>
+                <angular-editor class="content-editor" formControlName="content" id="content"></angular-editor>
+                <div style="color: red;" *ngIf="contentForm.invalid && (contentForm.dirty || contentForm.touched)">
+                    <div class="mb-2" *ngIf="contentForm.errors && contentForm.errors['whitespace']">Content cannot be empty</div>
+                    <div class="mb-2" *ngIf="contentForm.errors && contentForm.errors['required']">Content is required</div>
+                    <div class="mb-2" *ngIf="contentForm.errors && contentForm.errors['minlength']">The length must be at least {{contentForm.errors['minlength'].requiredLength}}</div>
+                </div>
+            </div>
+            <div>
+                <p class="text-center mt-3"><input class="btn btn-primary" type="button" [disabled]="!addNewPost.valid" value="Add" (click)="add()"></p>
+            </div>
+        </div>
+    </form>
+</div>

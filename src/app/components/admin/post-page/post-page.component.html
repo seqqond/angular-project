@@ -1,0 +1,26 @@
+<form [formGroup]="postPageForm" class="onePost" novalidate>
+    <div class="parent">
+        <div class="mb-4">
+            <label class="form-label" for="title">Post Name:</label>
+            <input class="form-control" formControlName="title"
+                placeholder="Enter title of the post" type="text" name="title" id="title">
+            <div style="color: red;" *ngIf="titleForm.invalid && (titleForm.dirty || titleForm.touched)">
+                <div *ngIf="titleForm.errors && titleForm.errors['required']">Title is required</div>
+                <div *ngIf="titleForm.errors && titleForm.errors['minlength']">Title must be at least {{titleForm.errors['minlength'].requiredLength}} characters long</div>
+                <div *ngIf="titleForm.errors && titleForm.errors['whitespace']">Title cannot be just spaces</div>
+            </div>
+            
+        </div>
+        <div>
+            <angular-editor class="content-editor" formControlName="content" id="content"></angular-editor>
+            <div style="color: red;" *ngIf="contentForm.invalid && (contentForm.dirty || contentForm.touched)">
+                <div *ngIf="contentForm.errors && contentForm.errors['required']">Content is required</div>
+                <div *ngIf="contentForm.errors && contentForm.errors['minlength']">Content must be at least {{contentForm.errors['minlength'].requiredLength}} characters long</div>
+                <div *ngIf="contentForm.errors && contentForm.errors['whitespace']">Content cannot be just spaces</div>
+            </div>
+        </div>
+        <div>
+            <input type="button" class="btn btn-success mt-2" [disabled]="!postPageForm.valid" value="Edit" (click)="edit(post)">
+        </div>
+    </div>
+</form>

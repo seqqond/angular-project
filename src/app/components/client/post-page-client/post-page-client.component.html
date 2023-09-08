@@ -1,0 +1,15 @@
+<div class="container" *ngIf="post">
+    <div class="title mb-4">
+        <h3>{{post.title}}</h3>
+        <p (click)="return()">Return to home</p>
+    </div>
+    <div>
+        <p>
+            <span class="author me-4">{{post.author}}</span>
+            <span class="opacity-50 date">{{post.date}}</span>
+        </p>
+    </div>
+    <div>
+        <p>{{post.content | stripHtml}}</p>
+    </div>
+</div>
